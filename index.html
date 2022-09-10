@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        th {
+            background-color: coral;
+        }
+        
+        td {
+            background-color: bisque;
+            cursor: pointer;
+            transition: 2s;
+        }
+    
+        td:hover {
+            background-color: greenyellow;
+            transform: scale(1.2);
+        }
+        
+        .tabelku {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        table{
+            border: 1px;
+            align-content: center;
+        }
+        .hapus:hover{
+                transform: scale(0.8);
+                background-color: red;
+        }
+    </style>
+    <title>Tugas Jquery</title>
+
+</head>
+
+<body>
+    <h1>My Circle</h1>
+    <table class="tabelku">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Aksi</th>
+        </tr>
+        <tr id="row__1">
+            <td>1</td>
+            <td class="nama_mhs">Ilham Nur Hermawan</td>
+            <td>Ds. Babakan</td>
+            <td class="hapus" id="hapus__1">Hapus</td>
+        </tr>
+        <tr id="row__2">
+            <td>2</td>
+            <td class="nama_mhs">Ferdy Gusnanto</td>
+            <td>Ds. Gebang</td>
+            <td class="hapus" id="hapus__2">Hapus</td>
+        </tr>
+        <tr id="row__3">
+            <td>3</td>
+            <td class="nama_mhs">Nurul Fikri</td>
+            <td>Ds. Mertapada Wetan</td>
+            <td class="hapus" id="hapus__3">Hapus</td>
+        </tr>
+        <tr id="row__4">
+            <td>4</td>
+            <td class="nama_mhs">Naufal</td>
+            <td>Ds. Kesunean</td>
+            <td class="hapus" id="hapus__4">Hapus</td>
+        </tr>
+        <tr id="row__5">
+            <td>5</td>
+            <td class="nama_mhs">Indra Ikshani</td>
+            <td>Ds.Lemahabang</td>
+            <td class="hapus" id="hapus__5">Hapus</td>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function() {
+            //alert(0)
+            $('.nama_mhs').click(function() {
+                //alert(1)
+                let isi = $(this).text();
+                //alert(isi);
+                let isi2 = prompt('ubah dengan:', isi);
+                if (!isi2) return;
+                //alert(isi2);
+                $(this).text(isi2);
+           
+            })
+            $('.hapus').click(function() {
+                //alert(1)
+                let yakin = confirm ('beneran nih mau dihapus?');
+                if(!yakin) return;
+                let id=$(this).prop('id');
+                //alert(id);
+                let rid=id.split('__');
+                let baris_ke=rid[1];
+                //alert(baris_ke);
+                $('#row__'+baris_ke).slideUp()
+                //alert('oke dihapus ya')
+
+            })
+        })
+    </script>
+</body>
+
+</html>
